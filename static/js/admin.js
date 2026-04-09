@@ -10,7 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // Load statistics
 async function loadStats() {
     try {
-        const response = await fetch('/api/admin/stats');
+        const response = await fetch(`/api/admin/stats?t=${Date.now()}`, {
+            cache: 'no-store',
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        });
         const data = await response.json();
         
         // Update total responses
@@ -102,7 +107,12 @@ function renderResponsesTable(customers) {
 // Export data
 async function exportData() {
     try {
-        const response = await fetch('/api/admin/export/excel');
+        const response = await fetch(`/api/admin/export/excel?t=${Date.now()}`, {
+            cache: 'no-store',
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        });
         if (!response.ok) {
             throw new Error('Falha ao gerar arquivo Excel');
         }

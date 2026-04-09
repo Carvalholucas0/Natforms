@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for, send_file
+from flask import Flask, render_template, request, jsonify, redirect, url_for, send_file, make_response
 from flask_cors import CORS
 from config import Config
 from models import db, Customer, Question, QuestionOption, Response, Result, PERSONALITY_TYPES
@@ -159,12 +159,16 @@ def admin_stats():
             'personality_type': PERSONALITY_TYPES[result.personality_type]['name'] if result else 'N/A'
         })
     
-    return jsonify({
+    response = make_response(jsonify({
         'total_responses': total_responses,
         'personality_counts': personality_counts,
         'personality_types': PERSONALITY_TYPES,
         'recent_customers': recent_customers
-    })
+    }))
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 @app.route('/api/admin/export', methods=['GET'])
 def export_data():
@@ -193,7 +197,11 @@ def export_data():
             'responses': response_details
         })
     
-    return jsonify(data)
+    response = make_response(jsonify(data))
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 
 @app.route('/api/admin/export/excel', methods=['GET'])
@@ -247,12 +255,16 @@ def export_data_excel():
     output.seek(0)
 
     filename = f"natforms-export-{datetime.now().strftime('%Y-%m-%d')}.xlsx"
-    return send_file(
+    response = send_file(
         output,
         as_attachment=True,
         download_name=filename,
         mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     )
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
