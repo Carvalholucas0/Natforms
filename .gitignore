@@ -12,3 +12,13 @@ ENV/
 instance/
 .DS_Store
 node_modules/
+.vscode/
+.alcache/
+.alpackages/
+.snapshots/
+.output/
+*.app
+rad.json
+*.g.xlf
+*.flf
+TestResults.xml
