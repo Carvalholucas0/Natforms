@@ -1,0 +1,256 @@
+:root {
+    --primary-color: #B71E6C;
+    --secondary-color: #B71E6C;
+    --text-dark: #2C3E50;
+    --bg-light: #F8F9FA;
+    --border-color: #E8E8E8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Futura', 'Futura PT', 'Trebuchet MS', 'Arial', sans-serif;
+    background-color: #4a291f;
+    background-image: url('/static/images/pattern.jpeg');
+    background-repeat: repeat;
+    background-size: 280px auto;
+    background-position: top left;
+    color: var(--text-dark);
+    font-size: 16px;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(245, 134, 52, 0.74) 0%,
+        rgba(255, 255, 255, 0.68) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.admin-container {
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.admin-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.admin-header h1 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.btn {
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Futura', 'Futura PT', 'Trebuchet MS', 'Arial', sans-serif;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.btn-secondary {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background: #9a195b;
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.stat-card {
+    background: white;
+    padding: 18px 14px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.stat-text {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.personality-distribution {
+    background: white;
+    padding: 18px 14px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+.personality-distribution h2 {
+    margin-bottom: 14px;
+    color: var(--text-dark);
+    font-size: 1.15rem;
+}
+
+.chart-container {
+    display: grid;
+    gap: 15px;
+}
+
+.chart-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+}
+
+.chart-label {
+    min-width: 0;
+    font-weight: 500;
+}
+
+.chart-bar-fill {
+    flex: 1;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.chart-count {
+    min-width: 0;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.recent-responses {
+    background: white;
+    padding: 18px 14px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.section-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.section-header h2 {
+    color: var(--text-dark);
+    font-size: 1.15rem;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+}
+
+thead {
+    background: var(--bg-light);
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--border-color);
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+tbody tr:hover {
+    background: #FFF5F7;
+}
+
+.loading-cell {
+    text-align: center;
+    padding: 40px !important;
+    color: #999;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+}

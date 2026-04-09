@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathalia Otero - Descubra Seu Estilo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="brand-header">
+                <img src="{{ url_for('static', filename='images/COLORIDAS.png') }}" alt="Nathalia Otero" class="brand-logo">
+                <p class="brand-tagline">Mulher latina e colorida!</p>
+            </div>
+            
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <h2>Quer descobrir qual COLORIDA você é<br>e entrar pro nosso universo? 💘</h2>
+                    <p>deixa aqui:</p>
+                </div>
+                
+                <form id="customer-form" class="customer-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="nome:" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="e-mail:">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="WhatsApp:">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="birthday" name="birthday" placeholder="Aniversário (prometemos usar bem 👀✨):">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Começar Quiz</button>
+                </form>
+            </div>
+            
+            <div class="decorative-circles">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            
+            <div class="quiz-content">
+                <div class="question-counter">
+                    <span id="current-question">1</span> / <span id="total-questions">12</span>
+                </div>
+                
+                <h2 id="question-text" class="question-text"></h2>
+                
+                <div id="options-container" class="options-container"></div>
+                
+                <div class="navigation-buttons">
+                    <button id="prev-btn" class="btn btn-secondary" style="display: none;">Anterior</button>
+                    <button id="next-btn" class="btn btn-primary" style="display: none;">Próxima</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen">
+            <div class="result-content">
+                <div class="result-animation">
+                    <div class="confetti"></div>
+                </div>
+                
+                <h2 class="result-title">✨ Seu resultado tá pronto:</h2>
+                <h1 id="result-type" class="result-type"></h1>
+                
+                <div id="result-card" class="result-card">
+                    <p id="result-description" class="result-description"></p>
+                    
+                    <div class="style-tips">
+                        <h3>👉</h3>
+                        <p id="result-phrase" class="result-phrase"></p>
+                    </div>
+                </div>
+                
+                <div class="result-actions">
+                    <a href="/brinde" class="btn btn-primary">Resgate seu brinde</a>
+                    <button class="btn btn-secondary" onclick="location.reload()">Fazer Novamente</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Calculando seu estilo...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

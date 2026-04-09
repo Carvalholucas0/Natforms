@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Nathalia Otero Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Painel Administrativo</h1>
+            <a href="/" class="btn btn-primary">Voltar ao Quiz</a>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total de Respostas</h3>
+                <p class="stat-number" id="total-responses">0</p>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Tipo Mais Comum</h3>
+                <p class="stat-text" id="most-common-type">-</p>
+            </div>
+        </div>
+
+        <div class="personality-distribution">
+            <h2>Distribuição de Personalidades</h2>
+            <div id="personality-chart" class="chart-container"></div>
+        </div>
+
+        <div class="recent-responses">
+            <div class="section-header">
+                <h2>Respostas Recentes</h2>
+                <button id="export-btn" class="btn btn-secondary">Exportar Dados (Excel)</button>
+            </div>
+            <div class="table-container">
+                <table id="responses-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>WhatsApp</th>
+                            <th>Aniversário</th>
+                            <th>Tipo de Personalidade</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="responses-body">
+                        <tr>
+                            <td colspan="6" class="loading-cell">Carregando...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>

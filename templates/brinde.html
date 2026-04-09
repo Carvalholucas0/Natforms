@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resgate seu brinde - Nathalia Otero</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="brinde-screen screen active">
+            <div class="brand-header">
+                <img src="{{ url_for('static', filename='images/COLORIDAS.png') }}" alt="Nathalia Otero" class="brand-logo">
+            </div>
+            
+            <div class="brinde-content">
+                <h2 class="brinde-title">descobriu qual colorida você é e fez o check-in?</h2>
+                
+                <div class="brinde-card">
+                    <h3>ganhou o kit exclusivo</h3>
+                    <p class="brinde-description">
+                        basicamente: um kit pra assumir oficialmente que<br>
+                        <strong>✨ você é das nossas</strong>
+                    </p>
+                    
+                    <div class="kit-items">
+                        <div class="kit-item">
+                            <span class="emoji">🤍</span>
+                            <p>botton Mulher Latina & Colorida</p>
+                        </div>
+                        <div class="kit-item">
+                            <span class="emoji">💖</span>
+                            <p>chaveiro de coração com espelho<br><span class="small">(porque a gente ama se olhar, sim)</span></p>
+                        </div>
+                        <div class="kit-item">
+                            <span class="emoji">✨</span>
+                            <p>adesivos pra espalhar sua versão por aí</p>
+                        </div>
+                    </div>
+                    
+                    <p class="cta-text">vem pegar o seu 👀✨</p>
+                </div>
+                
+                <div class="brinde-actions">
+                    <a href="/" class="btn btn-primary">Voltar ao Início</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
