@@ -50,8 +50,6 @@ body::before {
     );
     pointer-events: none;
     z-index: 0;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
 }
 
 .container {
@@ -70,11 +68,13 @@ body::before {
 .screen {
     display: none;
     width: 100%;
-    animation: fadeIn 0.5s ease-in;
+    opacity: 1;
 }
 
 .screen.active {
     display: block;
+    -webkit-animation: fadeIn 0.5s ease-in forwards;
+    animation: fadeIn 0.5s ease-in forwards;
 }
 
 @keyframes fadeIn {
